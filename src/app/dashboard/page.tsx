@@ -1,8 +1,15 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
+import SearchSection from './_components/SearchSection'
+import Template from './_components/Template'
 
 const page = () => {
+  const [userSearch, setUserSearch] = useState<string>()
   return (
-    <div>page</div>
+    <div>
+      <SearchSection onSearch={(value:string)=>setUserSearch(value)}/>
+      <Template userSearch={userSearch}/>
+    </div>
   )
 }
 
