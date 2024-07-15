@@ -137,7 +137,7 @@ export default [
         ]
     },
     {
-        name:"Rewrite Article (Plagiarism Free)",
+        name:"Rewrite (Plagiarism Free)",
         desc: "Use this AI tool to rewrite existing Article or Blog Post to eliminate plagiarism, depends on your given text and outline",
         catagory:"Writing Assistant",
         icon: "/rewrite-article.png",

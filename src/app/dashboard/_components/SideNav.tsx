@@ -34,7 +34,7 @@ const SideNav = () => {
 
    
     return (
-        <div className='shadow-sm border-r h-full'>
+        <div className='shadow-sm border-r h-full bg-white'>
             <div className='p-5'>
                 <a
                     href="/"
