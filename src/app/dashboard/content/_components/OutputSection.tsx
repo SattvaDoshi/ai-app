@@ -1,11 +1,22 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import { Button } from '@/components/ui/button';
 import { Copy } from 'lucide-react';
 
-const OutputSection = () => {
+interface PROPS{
+  aiOutput:string
+}
+
+const OutputSection = ({aiOutput}:PROPS) => {
+
   const editRef:any=useRef()
+
+  useEffect(()=>{
+    const editInstance = editRef.current.getInstance();
+    editInstance.setMarkdown(aiOutput);
+  },[aiOutput])
+
   return (
     <div className='bg-white shadow-lg border rounded'>
       <div className='flex justify-between items-center p-5'>

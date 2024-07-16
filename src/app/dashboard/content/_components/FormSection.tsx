@@ -5,15 +5,16 @@ import Image from 'next/image'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, LoaderIcon } from 'lucide-react'
 import Link from 'next/link'
 
 interface PROPS {
     selectedTemplate?: TEMPLATE,
-    userFormInput: any
+    userFormInput: any,
+    loading:boolean
 }
 
-const FormSection = ({ selectedTemplate, userFormInput }: PROPS) => {
+const FormSection = ({ selectedTemplate, userFormInput,loading }: PROPS) => {
 
     const [formData, setFormData] = useState<any>();
 
@@ -53,7 +54,12 @@ const FormSection = ({ selectedTemplate, userFormInput }: PROPS) => {
                             }
                         </div>
                     ))}
-                    <Button type='submit' className='w-full p-2 mt-8'>Generate Content</Button>
+                    <Button type='submit' className='w-full p-2 mt-8 flex justify-center items-center gap-2' 
+                    disabled={loading}
+                    >
+                        {loading && <LoaderIcon className='animate-spin' /> }
+                        {loading?'Generating':"Generate Content"}
+                    </Button>
                 </form>
             </div>
         </div>
