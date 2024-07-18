@@ -10,6 +10,7 @@ import { AIOutput } from '@/utlis/Schema'
 import { useUser } from '@clerk/nextjs'
 import moment from 'moment'
 import { TotalUsageContext } from '@/app/(context)/TotalUsage'
+import { UserSubscriptionContext } from '@/app/(context)/UserSubscrption'
 
 interface PROPS{
     params:{
@@ -24,9 +25,10 @@ const CreateNewContent = (props:PROPS) => {
   const [aiOutput, setAiOutput] = useState<string>("")
   const {user} = useUser()
   const {TotalUsage} = useContext(TotalUsageContext)
+  const {userSubscription, setUserSubscription} = useContext(UserSubscriptionContext)
 
     const generateAiContent=async(formData:any)=>{
-      if(TotalUsage>=10000){
+      if(TotalUsage>=10000&&!userSubscription){
         return;
       }
       setLoading(true)
