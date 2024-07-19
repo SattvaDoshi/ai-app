@@ -1,18 +1,18 @@
-import { Search } from 'lucide-react'
-import React from 'react'
+import { UserButton } from '@clerk/nextjs';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
   return (
-    <div className='p-4 shadow-sm border-b flex justify-between items-center bg-white'>
-        <div className='flex gap-2 items-center p-2 border rounded max-w-lg bg-white'>
-            <Search/>
-            <input type="text" placeholder='Search...' className='outline-none'/>
-        </div>
-        <div className='bg-primary p-2 cursor-pointer rounded-full text-xs text-white'>
-            <h2>🔥Join Membership just for ₹199/Month</h2>
-        </div>
+    <div className='top-0 left-0 right-0 p-4 z-50 bg-white shadow-sm flex justify-between'>
+      <div>
+        
+      </div>
+      <div className='container mx-auto flex justify-end items-center'>
+        <UserButton />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

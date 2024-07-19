@@ -9,7 +9,7 @@ const SearchSection = ({onSearch}:any) => {
         <h2 className='md:text-4xl text-2xl font-bold flex justify-center items-center text-white'>Browse All Templates</h2>
         <p className='text-white'>What would you like to create Today ??</p>
         <div className='w-full flex justify-center'>
-            <div className='flex gap-2 mt-5 mb-2 p-2 items-center border rounded-lg bg-white w-[45%]'>
+            <div className='flex gap-2 mt-5 mb-2 p-2 items-center border rounded-lg bg-white md:w-[45%] w-[90%]'>
                 <Search className='text-primary'/>
                 <input type="text" placeholder='Search' className='bg-transparent w-full outline-none text-black' 
                 onChange={(event)=>onSearch(event.target.value)}

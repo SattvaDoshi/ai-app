@@ -99,7 +99,7 @@ function Billing() {
   }
 
   return (
-    <div className="pt-5 bg-slate-100" id="pricing">
+    <div className="pt-5 bg-slate-100">
       <div className="mx-auto pb-20 mt-4 max-w-7xl px-6 lg:px-8">
         <p className="mx-auto mt-6 max-w-2xl text-center font-bold md:text-2xl text-xl leading-8">
           Choose the product that works best

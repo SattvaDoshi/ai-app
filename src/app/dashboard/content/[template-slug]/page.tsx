@@ -11,6 +11,7 @@ import { useUser } from '@clerk/nextjs'
 import moment from 'moment'
 import { TotalUsageContext } from '@/app/(context)/TotalUsage'
 import { UserSubscriptionContext } from '@/app/(context)/UserSubscrption'
+import { CreditUsageContext } from '@/app/(context)/CreditUsage'
 
 interface PROPS{
     params:{
@@ -26,6 +27,7 @@ const CreateNewContent = (props:PROPS) => {
   const {user} = useUser()
   const {TotalUsage} = useContext(TotalUsageContext)
   const {userSubscription, setUserSubscription} = useContext(UserSubscriptionContext)
+  const { CreditUsage, setCreditUsage } = useContext(CreditUsageContext)
 
     const generateAiContent=async(formData:any)=>{
       if(TotalUsage>=10000&&!userSubscription){
@@ -37,6 +39,7 @@ const CreateNewContent = (props:PROPS) => {
       const result = await chatSession.sendMessage(finalAiPrompt);
       setAiOutput(result?.response.text());
       setLoading(false)
+      setCreditUsage(Date.now())
       await SaveInfoDB(formData,selectedTemplate?.slug,result?.response.text())
     }
 
