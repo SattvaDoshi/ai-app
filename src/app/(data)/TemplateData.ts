@@ -2,7 +2,7 @@ export default [
     {
         name: "Code Writer",
         desc: "An AI tool to write error-free code based on your provided information",
-        category: "code",
+        catagory: "code",
         icon: "/code.png",
         aiPrompt: "Give me the code based on the given information. Note: Check the code twice before providing it. Give me the result in rich text editor format.",
         slug: "generate-code",
@@ -18,7 +18,7 @@ export default [
     {
         name: "Code Explainer",
         desc: "An AI tool to explain code and break it down into easily understandable parts",
-        category: "code",
+        catagory: "code",
         icon: "/explain-code.webp",
         aiPrompt: "Analyze the provided code and explain its functionality. Break down complex parts, describe the purpose of each section, and highlight any important programming concepts used. Provide the explanation in a clear, step-by-step format. give the output in the rich text editor format",
         slug: "explain-code",
