@@ -8,7 +8,7 @@ export default [
         slug: "generate-code",
         form: [
             {
-                label: "Enter your code information",
+                lable: "Enter your code information",
                 field: "input",
                 name: "code",
                 required: true
@@ -24,13 +24,13 @@ export default [
         slug: "explain-code",
         form: [
             {
-                label: "Paste your code here",
+                lable: "Paste your code here",
                 field: "textarea",
                 name: "codeToExplain",
                 required: true
             },
             {
-                label: "Specify programming language (optional)",
+                lable: "Specify programming language (optional)",
                 field: "input",
                 name: "language",
                 required: false
