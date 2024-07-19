@@ -5,7 +5,7 @@ import { AIOutput,userSubscriptionSchema } from '@/utlis/Schema';
 import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import React, { useContext, useEffect, useState  } from 'react'
-import { HISTORY } from '../history/page';
+import { HISTORY } from '../history/_components/GetHistory'
 import { TotalUsageContext } from '@/app/(context)/TotalUsage';
 import { UserSubscriptionContext } from '@/app/(context)/UserSubscrption';
 import { CreditUsageContext } from '@/app/(context)/CreditUsage';
@@ -17,40 +17,57 @@ const UseageTrack = () => {
     const { CreditUsage } = useContext(CreditUsageContext)
     const [maxWord, setMaxWord] = useState(10000)
 
-    useEffect(()=>{
-        user&&getData();
-        user&&isUserSubscribe();
-    },[user,CreditUsage])
+    const isUserWithEmail = (user: any): user is { primaryEmailAddress: { emailAddress: string } } => {
+      return user && user.primaryEmailAddress && typeof user.primaryEmailAddress.emailAddress === 'string';
+  }
 
-    
-    const getData=async()=>{
-         {/*@ts-ignore*/} 
-        const result:HISTORY[] = await db.select().from(AIOutput)
-        .where(eq(AIOutput?.createdBy,user?.primaryEmailAddress?.emailAddress))
-        getTotalusage(result)
+    useEffect(() => {
+      if (isUserWithEmail(user)) {
+          getData();
+          isUserSubscribe();
+      }
+  }, [user, CreditUsage]);
+
+    const getData = async () => {
+      if (!user?.primaryEmailAddress?.emailAddress) {
+          console.log("User email is not available");
+          return;
+      }
+      {/*@ts-ignore*/}
+      const result: HISTORY[] = await db.select().from(AIOutput)
+          .where(eq(AIOutput.createdBy, user.primaryEmailAddress.emailAddress));
+      getTotalusage(result);
+  }
+
+  const isUserSubscribe = async () => {
+    if (!user?.primaryEmailAddress?.emailAddress) {
+        console.log("User email is not available");
+        setUserSubscription(false);
+        setMaxWord(10000);
+        return;
     }
 
-    const isUserSubscribe = async () => {
-        try {
-          const result = await db
+    try {
+        const result = await db
             .select()
             .from(userSubscriptionSchema)
-            .where(eq(userSubscriptionSchema?.email,user?.primaryEmailAddress?.emailAddress));
-      
-          if (result.length > 0) { // Assuming result is an array and checking if it's not empty
+            .where(eq(userSubscriptionSchema.email, user.primaryEmailAddress.emailAddress));
+
+        if (result.length > 0) {
             setUserSubscription(true);
             setMaxWord(100000);
-          } else {
-            setUserSubscription(false); // Resetting the subscription status if the user is not found
-            setMaxWord(10000); // Optionally reset max words or set to a default value for unsubscribed users
-          }
-      
-          console.log(result);
-        } catch (error) {
-          console.error('Error checking user subscription:', error);
-          // Optionally handle the error by setting default state or showing a message to the user
+        } else {
+            setUserSubscription(false);
+            setMaxWord(10000);
         }
-      };
+
+        console.log(result);
+    } catch (error) {
+        console.error('Error checking user subscription:', error);
+        setUserSubscription(false);
+        setMaxWord(10000);
+    }
+};
       
 
     
