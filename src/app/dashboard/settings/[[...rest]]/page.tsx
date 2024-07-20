@@ -3,7 +3,7 @@ import React from 'react'
 
 const Settings = () => {
   return (
-    <div className='flex justify-center items-center w-full h-screen'>
+    <div className='flex relative justify-center items-center w-full h-screen'>
         <UserProfile/>
     </div>
   )

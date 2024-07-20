@@ -5,12 +5,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from 'react'
 import UseageTrack from './UseageTrack'
-import { UserSubscriptionContext } from '@/app/(context)/UserSubscrption'
 
 const SideNav = () => {
     const path = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { UserSubscription } = useContext(UserSubscriptionContext)
 
     const menulist = [
         {
@@ -18,12 +16,11 @@ const SideNav = () => {
             icons: Home,
             path: '/dashboard'
         },
-        {
-            name: "History",
-            icons: File,
-            path: '/dashboard/history',
-            requiresSubscription: true
-        },
+        // {
+        //     name: "History",
+        //     icons: File,
+        //     path: '/dashboard/history',
+        // },
         {
             name: "Billing",
             icons: Wallet,
@@ -49,7 +46,6 @@ const SideNav = () => {
                 )}
             </button>
 
-            {/* Sidebar */}
             <div
                 className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r transform transition-transform
              duration-300 ease-in-out lg:translate-x-0 ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
@@ -69,20 +65,19 @@ const SideNav = () => {
                     <div className="flex-grow overflow-y-auto">
                         <div className="flex flex-col w-full">
                             {menulist.map((item, idx) => (
-                                (!item.requiresSubscription || UserSubscription) && (
+                                
                                     <Link href={item.path} key={idx}>
                                         <button
                                             className={`flex gap-2 p-4 px-6 w-full items-center 
-                                            ${path === item.path ? 'text-primary bg-blue-100' : 'hover:bg-gray-100'}
-                                            ${item.requiresSubscription && !UserSubscription ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                            ${path === item.path ? 'text-primary bg-blue-100' : 'hover:bg-gray-100'}`}
                                             onClick={() => setIsMobileMenuOpen(false)}
-                                            disabled={item.requiresSubscription && !UserSubscription}
+                                            
                                         >
                                             <item.icons />
                                             <h2>{item.name}</h2>
                                         </button>
                                     </Link>
-                                )
+                                
                             ))}
                         </div>
                     </div>

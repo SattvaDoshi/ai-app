@@ -1,3 +1,4 @@
+"use client"
 import { getHistoryData, HISTORY } from './_components/GetHistory';
 import TemplateData from '@/app/(data)/TemplateData';
 import { TEMPLATE } from '../_components/Template';

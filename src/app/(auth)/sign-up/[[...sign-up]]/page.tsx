@@ -65,13 +65,14 @@ export default function Page() {
                 Welcome to Auto Content 🦑
               </h1>
 
-              <p className="mt-4 leading-relaxed text-gray-500">
+              <p className="mt-4 text-sm leading-relaxed text-gray-500">
                 Sign-up and Transform your ideas into compelling content with our cutting-edge AI technology.
                 Save time, boost creativity, and stay ahead of the competition
               </p>
             </div>
-
+            <div className="mt-8">
             <SignUp />
+            </div>
           </div>
         </main>
       </div>

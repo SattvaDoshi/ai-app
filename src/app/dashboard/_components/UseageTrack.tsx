@@ -9,6 +9,7 @@ import { HISTORY } from '../history/_components/GetHistory'
 import { TotalUsageContext } from '@/app/(context)/TotalUsage';
 import { UserSubscriptionContext } from '@/app/(context)/UserSubscrption';
 import { CreditUsageContext } from '@/app/(context)/CreditUsage';
+import Link from 'next/link';
 
 const UseageTrack = () => {
     const {user}=useUser();
@@ -92,7 +93,9 @@ const UseageTrack = () => {
             </div>
             <h2 className='text-sm mt-2'>{TotalUsage}/{maxWord} credits used</h2>
         </div>
-        <Button variant={'secondary'} className='my-3 w-full '>Upgrade</Button>
+        <Button variant={'secondary'} className='my-3 w-full '>
+            <Link href={'/dashboard/billing'}>Upgrade</Link>
+        </Button>
     </div>
   )
 }
