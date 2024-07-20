@@ -5,11 +5,19 @@ import { AIOutput,userSubscriptionSchema } from '@/utlis/Schema';
 import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import React, { useContext, useEffect, useState  } from 'react'
-import { HISTORY } from '../history/_components/GetHistory'
 import { TotalUsageContext } from '@/app/(context)/TotalUsage';
 import { UserSubscriptionContext } from '@/app/(context)/UserSubscrption';
 import { CreditUsageContext } from '@/app/(context)/CreditUsage';
 import Link from 'next/link';
+
+export interface HISTORY {
+    id: number,
+    formData: string,
+    aiResponse: string,
+    templateSlug: string,
+    createdBy: string,
+    createdAt: string,
+}
 
 const UseageTrack = () => {
     const {user}=useUser();
