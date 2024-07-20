@@ -4,7 +4,7 @@ export default [
         desc: "An AI tool to write error-free code based on your provided information",
         catagory: "code",
         icon: "/code.png",
-        aiPrompt: "Give me the code based on the given information. Note: Check the code twice before providing it. Give me the result in rich text editor format.",
+        aiPrompt: "Give me the code based on the given information. Note: Check the code twice before providing it",
         slug: "generate-code",
         form: [
             {
@@ -20,7 +20,7 @@ export default [
         desc: "An AI tool to explain code and break it down into easily understandable parts",
         catagory: "code",
         icon: "/explain-code.webp",
-        aiPrompt: "Analyze the provided code and explain its functionality. Break down complex parts, describe the purpose of each section, and highlight any important programming concepts used. Provide the explanation in a clear, step-by-step format. give the output in the rich text editor format",
+        aiPrompt: "Analyze the provided code and explain its functionality. Break down complex parts, describe the purpose of each section, and highlight any important programming concepts used. give the output in the rich text editor format",
         slug: "explain-code",
         form: [
             {

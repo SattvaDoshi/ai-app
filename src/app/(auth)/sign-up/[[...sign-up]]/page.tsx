@@ -28,12 +28,12 @@ export default function Page() {
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-              Welcome to Squid 🦑
+              Welcome to Auto-Content 🦑
             </h2>
 
             <p className="mt-4 leading-relaxed text-white/90">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-              quibusdam aperiam voluptatum.
+            Sign-up and Transform your ideas into compelling content with our cutting-edge AI technology.
+            Save time, boost creativity, and stay ahead of the competition
             </p>
           </div>
         </section>
@@ -66,7 +66,8 @@ export default function Page() {
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
-                Sign-up and get Started with the power of AI
+                Sign-up and Transform your ideas into compelling content with our cutting-edge AI technology.
+                Save time, boost creativity, and stay ahead of the competition
               </p>
             </div>
 
