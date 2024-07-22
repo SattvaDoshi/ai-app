@@ -38,6 +38,23 @@ export default [
         ]
     },
     {
+        name: "Linkedin Post",
+        desc: "An AI tool to create Linkedin post to increase your reach and to show case your work",
+        catagory: "Linkedin",
+        icon: "/Linkedin.png",
+        aiPrompt: "Based on the input given give me Linkedin post along with the emojis and hashtag to increase my impression",
+        slug: "linkedin-post",
+        form: [
+            {
+                lable: "Paste your topic",
+                field: "textarea",
+                name: "linkedin-post",
+                required: true
+            },
+           
+        ]
+    },
+    {
         name: "Blog Title",
         desc: "An AI tool to generate blog title depends on your blog information",
         catagory: "blog",
