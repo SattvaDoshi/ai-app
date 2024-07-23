@@ -177,12 +177,7 @@ function Billing() {
                 </svg>
                 <span className="text-primary">100,000 free Credits</span>
               </li>
-              <li className="flex gap-x-3 items-center">
-                <svg className="h-5 w-5 flex-none text-blue-700" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                <span className="text-primary">Access to Hitory</span>
-              </li>
+             
 
             </ul>
           </div>
@@ -198,8 +193,10 @@ function Billing() {
               <span className="text-xl font-medium ">/month</span>
             </p>
             <Button
-              aria-describedby="product1" className="mt-8 block w-full text-center text-sm font-semibold">
-              Buy Now
+            disabled
+              aria-describedby="product1" variant={'secondary'} 
+              className="mt-8 block w-full text-center text-sm font-semibold">
+              Currently not available
             </Button>
             <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-blue-200">
               <li className="flex gap-x-3 items-center">
